@@ -8,7 +8,7 @@ public class Ex01별찍기기초 {
 
 		for (int i = 0; i < 5; i++) {                  // i를 사용안함
 			
-			for (int j = 0; j < 5; j++) {            // 먼저 5번 반복	j를 사용한함
+			for (int j = 0; j < 0; j++) {            // 먼저 5번 반복	j를 사용한함
 				
 				System.out.print("*");	
 				
