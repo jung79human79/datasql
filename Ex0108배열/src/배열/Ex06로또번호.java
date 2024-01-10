@@ -14,12 +14,11 @@ public class Ex06로또번호 {
 			lotto[j] = ran.nextInt(10) + 1;
 			for (int i = 0; i < j; i++) {
 				if (lotto[i] == lotto[j]) {
-					lotto[j] = ran.nextInt(10) + 1;    //
+					lotto[j] = ran.nextInt(10) + 1;    // 생략가능
 					j--;
 					break;    // 멈추고 for문으로
 				}
 			}
-
 		}
 		System.out.println(Arrays.toString(lotto));
 
