@@ -16,7 +16,7 @@ public class Ex06로또번호 {
 				if (lotto[i] == lotto[j]) {
 					lotto[j] = ran.nextInt(10) + 1;    // 생략가능
 					j--;
-					break;    // 멈추고 for문으로
+					break;    // 멈추고 맨 위 for문으로~
 				}
 			}
 		}
