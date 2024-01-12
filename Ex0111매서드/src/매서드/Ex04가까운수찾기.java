@@ -58,20 +58,5 @@ public class Ex04가까운수찾기 {
 			}else{
 				return 0;
 			}
-			
-			
-			
-		
-	
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
