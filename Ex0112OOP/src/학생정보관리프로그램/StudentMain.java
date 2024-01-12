@@ -15,19 +15,28 @@ public class StudentMain {
 		// 이름, 자바 점수 출력
 		stu1.getName();                                // 출력문 정대주 출력
 		stu1.getNumber();                              // 출력문 정재은 출력
-		System.out.println(stu1.getName());            // 리턴값을 출력함 = 프린트함수 필요
+		
+		System.out.println(stu1.getName());            // 함수를 호출함= 리턴값을 출력함 = 프린트함수 필요
 		System.out.println(stu1.getNumber());
-		stu1.setName("ㅋㅋ");  //함수안에 출력문이 있으니 출력문울 적을 필요는 없다 근데 함수안에 입력이 있으니 입력은 타입에 맞게 넣어준다
-		System.out.println(stu1.getName());
+		stu1.setName("ㅋㅋ");                   //함수안에 출력문이 있으니 출력문울 적을 필요는 없다 근데 함수안에 입력이 있으니 입력은 타입에 맞게 넣어준다
+		System.out.println(stu1.getName());     
 		
 		// 매서드 이름위에 마우스 올리면 리턴타입 확인가능
-		// String a = stu1.getName();
+		// 예)String a = stu1.getName(); 출력도 할 수있고 동일 타입의 변수에도 적용가능하다.  
 		
 		
 		// Student 자료형으로 stu2 객체 형성
-		Student stu2 = new Student("임경남","20242222",19);
-		// new Student() --> 객체를 생성하는 순간에 실행되는 매서드!
-		// ***생성자(constructor)******반드시 필요함
+		Student stu2 = new Student("김기순","20242222",19);
+		// new Student() --> 새로운 객체를 생성하는 순간에 실행되는 매서드!=생성자 매서드
+		// 새로운 객체를 생성시 ()안에 필드값을 직접 입력시에는 반드시 ***생성자(constructor)***반드시 필요함
+		
+		// Student 클래스에는 원래 필드 6개를 디폴트로 선언했다.
+		// stu2.setScoreAndroid(200);   // 직접 입력을 안하고 객체 공간이 생성되는 곳에 바로 입력함 
+		System.out.println(stu2.getName());
+		System.out.println(stu2.getAge());
+		System.out.println(stu2.getScoreAndroid());    // 값을 미지정하여 int 기본값0 출력
+		
+		
 		
 		
 		
