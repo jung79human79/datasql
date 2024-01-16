@@ -11,7 +11,6 @@ public class StudentMain {
 	    
 		// 데이터 추가 이름 나이 넣고 이름만 출력
 		//Student st1= new Student("우석",25);
-		
 		//slist.add(st1);
 		
 		slist.add(new Student("우석",25));           // 한 줄 표현
@@ -22,6 +21,11 @@ public class StudentMain {
 		                                                // 그래서 클래스들의 집합=여러개의 객체를 보관 객체는 하나의 인덱스
 		                                                 // get(0)을 출력하면 주소 값이 나온다  // get() 매서드=slist의 매서드는 리턴타입이 Student
 		                                                  //getName()매서드=Student의 매서드는 리턴타입이 스트링 
+		// 데이터를 특정위치에 추가하기
+		slist.add(0,new Student("대주",30));   // 0번째 인덱스에 새로운 객체 추가 = 기존 0번째의 객체는 1번 인덱스로 이동함
+		
+		
+		
 		
 		// 4 팀원 4개추가하기 //for-each문사용하기
 		
