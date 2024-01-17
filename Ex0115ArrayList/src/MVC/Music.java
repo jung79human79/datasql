@@ -1,7 +1,7 @@
 package MVC;
 
 public class Music {
-	// MVC중에 모델역할 --> 데이터를 관라함
+	// MVC중에 모델역할 --> 데이터를 관라함.
 
 	// 뮤직 플레이어안에서 사용할 우리만의 음악 자료형 설계
 	
@@ -51,25 +51,5 @@ public class Music {
 	}
 	//public void setPath(String path) {
 	//	this.path = path;
-	//}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	//}	
 }
