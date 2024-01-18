@@ -1,7 +1,7 @@
 package 닌텐도게임;
 
 
-public class Mario extends Pokemon{
+public class Mario extends GameChip{
 
 	@Override
 	public void gameStart() {

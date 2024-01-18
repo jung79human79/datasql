@@ -21,7 +21,7 @@ public class Child extends Ex01Parent {
 	
 	
 	
-	
+	//녹색삼각형--> Override(우세하다)+패키지명+클래스명+매서드명
 	@Override     // 표시해준다.=annotation(특정기능은 없다)   // Override는 자식클래스에서 발생한다= 자식이 부모를 가지고 와서 변화시키므로~ 
 	public void makeJjam() {
 		System.out.println("맛있는 해물이 가득 짬뽕을 만든다!");

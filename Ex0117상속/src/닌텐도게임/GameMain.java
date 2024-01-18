@@ -18,13 +18,14 @@ public class GameMain {
 		Zelda z = new Zelda();
 		insert(z);                     // 상속되있으므로 형변환  업캐스팅 자동형변환 Pokemon이 부모.  
 		                               // 서브(하위)클래스가 부모(슈퍼,상위)클래스 타입으로 자동 형변환하는 것=업캐스팅 
-		
+		Dongmul d = new Dongmul();
+		insert(d);
 	}
 	
-	// 게임칩을 끼우는 기능
+	// 게임칩을 끼우는 기능  //함수생성=기능
 	
-	private static void insert (Pokemon game) {
-		game.gameStart();	   // 매서드 호출
+	private static void insert (GameChip game) {    // Pokemon 타입이 매개변수
+		game.gameStart();	                       // 매서드 호출
 	}
 	
 //	private static void insert (Mario game) {     // 매서드 오버로딩 //코드가 길어진다 // 상속을 통한 오버라이딩이 더 유용함
