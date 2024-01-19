@@ -18,4 +18,6 @@ score INT
 );
 commit;
 select * from bigdatamember;
-
+select id ,pw  from bigdatamember;
+select * from bigdatamember where id='smhrd' and pw= 12345;
+select * from bigdatamember where id='smhrd' and pw= 12345;
