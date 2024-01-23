@@ -17,7 +17,6 @@ public class MusicController {
 	
 	
 	//2.매서드
-	// 1.생성자 생성  = 다른 클래스에서 사용하기 위해 = 객체를 생성하기 위해
 	public MusicController () {
 		String comPath = "C:\\Users\\SMHRD\\Desktop\\javabackend\\Ex0115ArrayList\\player\\"; 
 		Music m1 = new Music("HypeBoy", "뉴진스", 180, comPath + "HypeBoy.mp3");  
