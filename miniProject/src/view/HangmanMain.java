@@ -183,7 +183,7 @@ public class HangmanMain {
 				
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
-					String url = "jdbc:mysql://localhost/jdbctest";
+					String url = "jdbc:mysql://localhost/hangman";
 					String user = "root";
 					String pass = "12345";
 					conn = DriverManager.getConnection(url, user, pass);
