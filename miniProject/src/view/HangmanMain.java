@@ -188,7 +188,7 @@ public class HangmanMain {
 					String pass = "12345";
 					conn = DriverManager.getConnection(url, user, pass);
 					
-					String sql = "delete from bigdatamember where id=? and pw=?";
+					String sql = "delete from hangman.user where id=? and pw=?";
 
 					psmt = conn.prepareStatement(sql);
 
@@ -213,10 +213,64 @@ public class HangmanMain {
 						e.printStackTrace();
 					}
 				}	
+			}else if (choice == 4) {
+				// 랭킹조회 처리
+				System.out.println("랭킹조회를 수행합니다.");
+				
+				Connection conn = null;
+				PreparedStatement psmt = null;
+				ResultSet rs = null;
+				
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					String url = "jdbc:mysql://localhost/hangman";
+					String user = "root";
+					String pass = "12345";
+					conn = DriverManager.getConnection(url, user, pass);
+
+					String sql = "select * from hangman.user order by  score desc";
+
+					psmt = conn.prepareStatement(sql);
+
+					rs = psmt.executeQuery();
+					
+		
+
+					while (rs.next() == true) {
+						String nickname = rs.getString("nickname");
+						String vip = rs.getString("vip");
+						int score = rs.getInt("score");
+						System.out.println("닉네임: "+nickname + "\t"+ "등급 :" + vip + "\t"+"점수 :" + score );
+					}
+					
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+
+					try {
+						if (rs != null)
+							rs.close();
+						if (psmt != null)
+							psmt.close();
+						if (conn != null)
+							conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}		
+			
 			}
 			
-			
-			
+		}else if (choice == 5) {
+			// 종료 처리
+			System.out.println("게임이 종료되었습니다.");
+			break;
+		} else {
+			// 숫자를 잘못 입력 했을 시
+			System.out.println("숫자를 잘못 입력하였습니다. 다시 선택해주세요.");
 		}
+				
+		}
+		sc.close();
 	}
 }
