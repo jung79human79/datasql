@@ -1,5 +1,7 @@
 package 배열;
 
+import java.util.Arrays;
+
 public class Ex02배열기초 {
 
 	public static void main(String[] args) {
@@ -35,6 +37,8 @@ public class Ex02배열기초 {
 
 	   // 강우석 데이터 출력
 		System.out.println(names[1]);
+		System.out.println(Arrays.toString(names));
+		
 		
 		
 	}

@@ -1,11 +1,13 @@
 package view;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import model.HangMemberDTO;
+import model.HangmanDAO;
+
+
+
 
 public class HangmanMain {
 
@@ -45,76 +47,43 @@ public class HangmanMain {
 				String id = sc.next();
 				System.out.print("pw 입력 : ");
 				String pw = sc.next();
+      
+				HangmanDAO dao = new HangmanDAO();
+				HangMemberDTO dto = dao.login(id, pw);
+				
+				if (dto != null) {
+					// 로그인 성공시~
+					System.out.println(dto.getName() + " 님 환영합니다!! (등급:" + dto.getVip() + ", 점수:" + dto.getScore() +")" );
+					// 난이도 선택 창
+					while (true) {
+						System.out.println("난이도를 선택해주세요!!");
+						System.out.print("[1]하 [2]중 [3]상 >> ");
+						int nan = sc.nextInt();
 
-				ResultSet rs = null;
-				PreparedStatement psmt = null;
-				Connection conn = null;
-
-				try {
-					Class.forName("com.mysql.cj.jdbc.Driver");
-					String url = "jdbc:mysql://localhost/hangman";
-					String user = "root";
-					String pass = "12345";
-					conn = DriverManager.getConnection(url, user, pass);
-
-					String sql = "select * from hangman.user where id=? and pw=?";
-
-					psmt = conn.prepareStatement(sql);
-
-					psmt.setString(1, id);
-					psmt.setString(2, pw);
-
-					rs = psmt.executeQuery();
-
-					if (rs.next() == true) {
-						// 로그인 성공시
-						String name = rs.getString("nickname");
-						String vip = rs.getString("vip");
-						int score = rs.getInt("score");
-						System.out.println(name + " 님 환영합니다!! (등급:" + vip + ", 점수:" + score+")" );
-						
-						// 난이도 선택 창
-						while (true) {
-							System.out.println("난이도를 선택해주세요!!");
-							System.out.print("[1]하 [2]중 [3]상 >> ");
-							int nan = sc.nextInt();
-
-							if (nan == 1) {
-								// 하 게임 실행
-								break; // 올바른 입력이면 루프를 빠져나감
-							} else if (nan == 2) {
-								// 중 게임 실행
-								break; // 올바른 입력이면 루프를 빠져나감
-							} else if (nan == 3) {
-								// 상 게임 실행
-								break; // 올바른 입력이면 루프를 빠져나감
-							} else {
-								System.out.println("숫자를 잘못 입력하였습니다. 다시 선택해주세요."); 
-							}
+						if (nan == 1) {
+							// 하 게임 실행
+							break; // 올바른 입력이면 루프를 빠져나감
+						} else if (nan == 2) {
+							// 중 게임 실행
+							break; // 올바른 입력이면 루프를 빠져나감
+						} else if (nan == 3) {
+							// 상 게임 실행
+							break; // 올바른 입력이면 루프를 빠져나감
+						} else {
+							System.out.println("숫자를 잘못 입력하였습니다. 다시 선택해주세요."); 
 						}
-						// 행맨 게임 실행
-					} else {
-						System.out.println("로그인에 실패했습니다");
-						System.out.println("아이디와 비밀번호를 확인해주세요");
 					}
+					// 행맨 게임 실행
 					
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-
-					try {
-						if (rs != null)
-							rs.close();
-						if (psmt != null)
-							psmt.close();
-						if (conn != null)
-							conn.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-
+					
+					
+					
+				} else {
+					// 로그인 실퍄했을 때
+					System.out.println("로그인에 실패했습니다");
+					System.out.println("아이디와 비밀번호를 확인해주세요");
 				}
+		
 			}else if (choice == 2) {
 				// 회원가입 처리
 				System.out.println("회원가입을 수행합니다.");
@@ -125,51 +94,22 @@ public class HangmanMain {
 				System.out.print("닉네임 입력 : ");
 				String name = sc.next();
 				
-				PreparedStatement psmt = null;
-				Connection conn = null;
+				HangmanDAO dao = new HangmanDAO();
+				HangMemberDTO dto = new HangMemberDTO(id, pw, name, 0, null );
 				
-				try {
-					Class.forName("com.mysql.cj.jdbc.Driver");
-
-					String url = "jdbc:mysql://localhost/hangman";
-
-					String user = "root";
-
-					String pass = "12345";
-
-					conn = DriverManager.getConnection(url, user, pass); 
-					
-					String sql = "INSERT INTO hangman.user(id,pw,nickname,score,vip) VALUES (?,?,?,0,'bronze')";
-					
-					psmt = conn.prepareStatement(sql);
-
-					psmt.setString(1, id);
-					psmt.setString(2, pw);
-					psmt.setString(3, name);
-					
-					int row = psmt.executeUpdate();
-
+				int row = dao.join(dto);	
+			    
 					if (row > 0) {
 						System.out.println("회원가입성공");
 					} else {
+						System.out.println("이미 존재하는 id입니다.");
 						System.out.println("회원가입실패");
+						
 					}
 
-				} catch (Exception e) {
+				
 
-					e.printStackTrace();
-
-				} finally {
-
-					try {
-						if (psmt != null)
-							psmt.close();
-						if (conn != null)
-							conn.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
+			
 			}else if (choice == 3) {
 				// 회원탈퇴 처리
 				System.out.println("회원탈퇴를 수행합니다.");
@@ -178,88 +118,31 @@ public class HangmanMain {
 				System.out.print("탈퇴할 pw입력하세요 : ");
 				String pw = sc.next();
 
-				Connection conn = null;
-				PreparedStatement psmt = null;
+				HangmanDAO dao = new HangmanDAO();
+				int row = dao.delete(id, pw);
 				
-				try {
-					Class.forName("com.mysql.cj.jdbc.Driver");
-					String url = "jdbc:mysql://localhost/hangman";
-					String user = "root";
-					String pass = "12345";
-					conn = DriverManager.getConnection(url, user, pass);
-					
-					String sql = "delete from hangman.user where id=? and pw=?";
-
-					psmt = conn.prepareStatement(sql);
-
-					psmt.setString(1, id);
-					psmt.setString(2, pw);
-					int row = psmt.executeUpdate();
-
 					if (row > 0) {
 						System.out.println("회원탈퇴성공");
 					} else {
 						System.out.println("회원탈퇴실패");
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-					try {
-						if (psmt != null)
-							psmt.close();
-						if (conn != null)
-							conn.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}	
+				
+				
 			}else if (choice == 4) {
 				// 랭킹조회 처리
 				System.out.println("랭킹조회를 수행합니다.");
 				
-				Connection conn = null;
-				PreparedStatement psmt = null;
-				ResultSet rs = null;
+				HangmanDAO dao = new HangmanDAO();
+				ArrayList<HangMemberDTO> reList = dao.selectAll();
 				
-				try {
-					Class.forName("com.mysql.cj.jdbc.Driver");
-					String url = "jdbc:mysql://localhost/hangman";
-					String user = "root";
-					String pass = "12345";
-					conn = DriverManager.getConnection(url, user, pass);
+				for (HangMemberDTO d : reList) {    
+				
+				System.out.println("닉네임: "+d.getName() + "\t" + "등급 :" + d.getVip() + "\t"+ "점수 :" + d.getScore() );
+				}
 
-					String sql = "select * from hangman.user order by  score desc";
-
-					psmt = conn.prepareStatement(sql);
-
-					rs = psmt.executeQuery();
+				
 					
-		
-
-					while (rs.next() == true) {
-						String nickname = rs.getString("nickname");
-						String vip = rs.getString("vip");
-						int score = rs.getInt("score");
-						System.out.println("닉네임: "+nickname + "\t"+ "등급 :" + vip + "\t"+"점수 :" + score );
-					}
-					
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				} finally {
-
-					try {
-						if (rs != null)
-							rs.close();
-						if (psmt != null)
-							psmt.close();
-						if (conn != null)
-							conn.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}		
-			
-			}
+				
 			
 		}else if (choice == 5) {
 			// 종료 처리
