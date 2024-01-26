@@ -18,6 +18,8 @@ public class HangMemberDTO {
 		this.vip = vip;
 		
 	}
+	
+	
 
 
 	public String getId() {

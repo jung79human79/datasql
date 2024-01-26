@@ -1,6 +1,7 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import model.HangMemberDTO;
@@ -14,6 +15,7 @@ public class HangmanMain {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
+		Random ran = new Random(20);
 
 		System.out.println("=======행맨 게임을 시작합니다!!=======");
 		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀");
@@ -157,3 +159,7 @@ public class HangmanMain {
 		sc.close();
 	}
 }
+
+
+
+

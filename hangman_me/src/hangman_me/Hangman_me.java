@@ -8,6 +8,7 @@ public class Hangman_me {
 	private static final int MAX_TRIES = 6;
 
 	public static void main(String[] args) {
+        
 		System.out.println(Arrays.toString(WORDS)); // WORDS 배열의 데이터 출력
 		System.out.println(WORDS[0]);
 		System.out.println(WORDS.length);
@@ -31,7 +32,7 @@ public class Hangman_me {
 
 			// Ask user for a guess
 			System.out.print("문자를 입력하세요: ");
-			char guess = scanner.next().toUpperCase().charAt(0);  //문자열을 입력해도 그 문자열의 앞쪽의 첫문자만=charAt(0) 인식한다.
+			char guess = scanner.next().toUpperCase().charAt(0);  //()안의 인덱스의 숫자만큼 문자갯수를 입력해야함.toUpperCase()== 소문자를 입력해도 대문자로 인식됨
 
 			// Check if the guess is correct
 			boolean isCorrectGuess = false;   //초기화
