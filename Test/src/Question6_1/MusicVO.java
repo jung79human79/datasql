@@ -2,72 +2,42 @@ package Question6_1;
 
 public class MusicVO {
 
-	private String title ;
-	private String singer;
-	private int PlayTime;
-	
-	
-	public MusicVO(String title, String singer, int playTime) {
-		//super();
-		this.title = title;
-		this.singer = singer;
-		this.PlayTime = playTime;
-	}
+	String title;
+	String single;
+	int playTime;
 
+	public MusicVO(String title, String single, int playTime) {
+		super();
+		this.title = title;
+		this.single = single;
+		this.playTime = playTime;
+	}
 
 	public String getTitle() {
 		return title;
 	}
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-
-	public String getSinger() {
-		return singer;
+	public String getSingle() {
+		return single;
 	}
 
-
-	public void setSinger(String singer) {
-		this.singer = singer;
+	public void setSingle(String single) {
+		this.single = single;
 	}
-
 
 	public int getPlayTime() {
-		return PlayTime;
+		return playTime;
 	}
-
 
 	public void setPlayTime(int playTime) {
-		PlayTime = playTime;
+		this.playTime = playTime;
 	}
 	
-	public  String toString() {
-		
-		return "";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public String toString() {
+		return (getTitle() + getSingle() + getPlayTime());
+	}	
 }
