@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계층선택자</title>
+    <STYLE>
+        /* ul태그를 기준으로 안쪽의 자식인 li태그 선택 */
+        ul>li{
+            font-size: 20px;
+        }
+        /* ul태그를 기준으로 안쪽의 자식인 li태그 중 클래스명인 lang만 선택 */
+        ul>.lang{
+                color:red;  
+        }
+        /*  ul태그를 기준으로 자손선택자를 사용해서 자바라는 글자를 노란색으로*/
+        /* 스페이스가 자손 선택자 */
+        ul a{
+            color:yellow;
+        }
+        /*  자식인 li도 결국 자손이다.*/
+        ul li{
+            font-family: '굴림';
+        }
+        /* id값이 db인 태그를 기준으로 인접형제 선택자
+        인접은 파이썬 
+        형제는 디비 밑에 모두 (방향은 기준에서 아래쪽)
+        근접형제:(+기호사용) 선택해서 글자 크기 조걸
+        */
+        #db+li{
+            font-size: 36px;
+        }
+        /* id값이 db인 태그를 기준으로 모든 형제
+        폰트를 궁서로~ */
+        #db~li{
+            font-family: '궁서';
+        }
+        /* p태그 중에서 클래스가 lang 인 것만 선택 */
+        p.lang{
+
+            font-size: 56px;
+        }
+
+
+
+
+
+    </STYLE>
+
+
+
+</head>
+
+<body>
+
+    
+    <!-- 순서가 없는 리스트태그 : ul -->
+    <!-- ul태그:부모 li태그들은 자식 
+        형제태그 -> 같은 선상 -->
+    <!-- 계층선택자
+    :특정 태그의 위치를 기주능로 계층엊 구조로 요소를 선택
+    1.자손 선택자 : 공백(ul li)사용
+    2.자식 선택자 : >사용 (ul>li)
+    3.인접형제 선택자 : +기호 (li+li)
+    4.형제(후행) 선택자 : ~기호 (li~li)
+-->
+
+
+<!-- 그룹 선택자 : 컴마를 기준으로 여러개 태그를 선택할 때
+>> p,h1,h2,h3 
+-->
+    <h1>우리가 지금까지 배운 언어</h1>
+    <ul>
+        <li id="java">
+            <!-- #은 링크를 다는데 아무것도 안걸림 -->
+            <a href="#">Java</a>
+        </li>
+        <li id="db">database</li>
+        <li class="lang">python</li>
+        <li class="labg">html</li>
+        <li class="lang">css</li>
+    </ul>
+    <p class="lang">안녕하세요</p>
+    <p class="lang">안녕하세요</p>
+    <p class="lang">안녕하세요</p>
+
+</body>
+
+</html>

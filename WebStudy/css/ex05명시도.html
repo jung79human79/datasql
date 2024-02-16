@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>명시도</title>
+    <style>
+        /* 계속해서 쌓이면서 누적된다
+    고로 마지막 p태그의 파란색으로 변경해야 하는데~
+     */
+        /* css의 명시도
+    :css가 중복으로 선언시 우선순위를 정하는 척도(점수)
+    - 전체 : 0
+    - 태그 : 1
+    - 클래스 : 10
+    - 아이디 : 100
+    - !important : 1000
+    >> 점수가 높을수록 css우선순위가 더 높다!!
+     */
+        #food1 {
+            color: orange;
+        }
+
+        p {
+            color: blue;
+        }
+
+        /* 100점 */
+        #food2 {
+            font-size: 90px;
+        }
+
+        /* 100+10=110점 */
+        #food1+.lunch {
+            font-size: 10px;
+        }
+
+        /* 명시도 다 무시 우선순위 1위 */
+        #food3 {
+            font-size: 90px !important ;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- 내가 id값이나 class값을 부여하면서 태그를 만들고 싶을 때
+>> 태그명#아이디값/태그명.클래스값
+ -->
+
+    <p id="food1" class="lunch">돼지주물럭</p>
+    <p id="food2" class="lunch">고구마치즈</p>
+    <p id="food3" class="lunch">초밥연어</p>
+    <p id="food4" class="lunch">파전막걸리</p>
+    <p id="food5" class="lunch">김밥떡뽁이</p>
+
+</body>
+
+</html>
