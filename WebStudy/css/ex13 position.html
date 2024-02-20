@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+    <style>
+        /*  포지션  속성
+        
+    :요소의위치를 자유자재로 배치해보자
+    1) static -> 기본값이다 : 요소를 순서대로 배치 / 자바에서는 고정적이라는 의미
+    2) relative -> static값 원래 위치를 기준으로 상하좌우를 자유롭게 이동
+    3) absolute -> 부모요소중 static속성을 가지고 있지 않은 부모요소를 기준으로 상하좌우를 자유롭게 이동
+                -> 만약에 부모요소가 없다면 바디 태그를 기준으로 움직인다!
+    4)fixed -> 고정적인 위치 :부모요소의 영향을 받지 않는다.
+    */
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        #red {
+            background-color: red;
+            left: 100px;
+            /* static경우에는 적용안됨 */
+        }
+
+        #green {
+            position: relative;
+            /* 기준점 : 기준점으로부터 얼만큼 떨어지게 만들건지 작성 */
+            left: 100px;
+            /* bottom: 100px; */
+            /* 아래에서 위로~ 아래쪽을 기준으로 얼마나 떨어지나*/
+            background-color: green;
+            /* 요소의 쌓이는 순서를 지정
+            -높은 숫자 : 앞쪽배치
+            -낮은 숫자 : 뒤쪽 배치 */
+            z-index: 999;
+
+        }
+
+        #blue {
+            background-color: blue;
+            position: relative;
+            /* 왼쪽을 기준으로  얼마나 떨어지나*/
+            left: 50px;
+            /* 위로 올라간다 */
+            bottom: 50px;
+        }
+
+        #gray {
+            background-color: gray;
+            /* position: absolute; */
+            /* 기준점이 바디태그 */
+            /* left: 0px; */
+            /* top: 0px */
+            position: fixed;
+            right: 300px;
+            /* bottom: 0px; */
+            /* 디스플레이 크기에 맞추어 조절됨 고정상테에서~ */
+        }
+        #yellow{
+            /* #gray는 부모요소중 static속성을 가지고 있지 않은 부모요소 */
+            background-color: yellow;
+            position: absolute;
+            right: 300px;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+
+    <div id="red">child</div>
+    <div id="green">child</div>
+    <div id="blue">child</div>
+    <div id="gray">child
+        <div id="yellow">child</div>
+    </div>
+
+
+
+
+</body>
+
+</html>

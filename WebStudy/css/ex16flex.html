@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃배치용_flex</title>
+
+
+
+
+    
+<style>
+
+
+/*display :flex;
+>레이아웃 배치 전용 기능
+(1)container
+- display :flex
+- flex-direction : 아이템 배치 방향를 결정
+- row(기본값) /로우-리버스 / 컬럼 /컬럼-컬럼리버스
+- flex-wrap : 아이텤이 컨테이너에 한 줄을 넘어설때 줄 바꿈 설정
+  >> nowrap(기본값) / wrap / wrap-리버스
+(2)item
+- flex-basis :해당하는 아이템의 기본크기를 설정
+>> 높이는 컨테이너에 따라 간다 
+>> 너비를 설정하는 개념
+>> row축으로 아이템 배치시 너비값 설정
+>> 컬럼축으로 아이템 배치시 높이값 설정
+
+- flex-grow : 
+    >> 내갓 설정한  아이템의 크기를 제외한 나머지 여백을 기준으로 비율을 나눠서  아이템에 포함시키는 개념
+    >> 컨테이너 안쪽에 여백이 사라짐  
+    >> 아래에서 1을 3개에게 주니 균둥하게 여백 가지고감 
+*/
+
+
+
+#black{
+    /* 컨테이너 역할 */
+width: 500px;
+/* height: 100px; */
+background-color: floralwhite;
+display: flex;
+/* 기본값이 행row이다 */
+/* flex-direction: row-reverse; */
+
+
+}
+
+/* 아이템의 높이값은 기본적으로 컨테이너의 높이값을 따른다 */
+#red{
+background-color: red;
+/* width: 100px; */
+/* height: 100px; */
+/* 컨테 기준으로 너비 변경 */
+flex-basis: 30%;
+flex-grow: 1;
+
+
+}
+#green{
+    background-color: green;
+width: 100px;
+height: 100px;
+flex-grow: 1;
+
+}
+
+#blue{
+    background-color: blue;
+width: 100px;
+/* height: 100px; */
+flex-grow: 1;
+
+}
+
+
+</style>
+
+
+
+
+</head>
+<body>
+    <div id="black">
+        <div id="red"></div>
+        <div id="green"></div>
+        <div id="blue"></div>
+    </div>
+
+
+
+
+
+</body>
+</html>
