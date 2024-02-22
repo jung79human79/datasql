@@ -39,20 +39,21 @@ public class ex00_Create extends HttpServlet {
 	// 클라이언트 요청을 받아 서비스를 진행하는 메서드!
 	// 여러번 동작이 가능하다!
 	// 두 개의 매개변수 (request ,response)
-	// 브라저창이 뜨는데 새로고침 할 때마다 service,doGet,doPost 매서드는 호출된다..
-	// HttpServletResponse response = HttpServletResponse는 데이터 타입이 객체
+	// 브라저창이 뜨는데 새로고침 할 때마다 service,doGet,doPost 매서드는 호출된다..-->3개의 매서드는 protected 접근자이다
+	// HttpServletResponse response = HttpServletResponse는 response 매개변수의 데이터 타입인데 타입은 객체형
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("service 매서드호출");
 	
 		//서비스를 제공하는 형태!
+		// 함수호출(매개변수)
 		doGet(request ,response);
 		doPost(request ,response);
 	}
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet 응답");
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("doGet 응답");
 	}
 
 
@@ -62,3 +63,5 @@ public class ex00_Create extends HttpServlet {
 	}
 
 }
+// 저장후 실행하면 'http://localhost:8080/Servelet1/ex00_Create'주소를 가진 페이지가 뜬다
+// 서블릿 파일 생성시 옵션에서 다양한 매서드를 선택할수 있다
