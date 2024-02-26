@@ -19,6 +19,7 @@ public class Ex05실습 extends HttpServlet {
 	
 	
 		PrintWriter out = response.getWriter();
+		
 		out.print("<html>");
 		out.print("<body>");
 		
@@ -35,7 +36,7 @@ public class Ex05실습 extends HttpServlet {
 		for(int i =1; i<=6; i++) {
 			
 			out.print("<td>" + i + "</td>");
-			
+			//out.print("<td> i </td>");  //i라는 문자만 1행에 6열로 들어감
 		}
 		
 		

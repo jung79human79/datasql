@@ -26,7 +26,7 @@ public class ex04operation extends HttpServlet {
 		String result3 =request.getParameter("op");
 		
 		
-	// 연산에 따라 해당연산을 진행할수 있는 로직
+	// 연산에 따라 해당연산을 진행할수 있는 로직 -->if문
 	// 자바에서는 문자열 비교시 .equals 숫자는 "=="
 		
 		int rer =0;
@@ -53,7 +53,7 @@ public class ex04operation extends HttpServlet {
 	
 		PrintWriter out = response.getWriter();
 		out.print(rer);
-		
+	// 새로운 페이지가 생성되는게 아니고 현재 페이지에서 그대로 연산된 값이 출려된다
 		
 		
 	}

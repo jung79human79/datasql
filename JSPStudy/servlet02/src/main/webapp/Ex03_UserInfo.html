@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <form action="Ex03_UserInfo" method="post">
+
+<h4>직업</h4>
+
+<!-- 3가지 옵션 선택 그룹으로 묶는다 동일 name  -->
+<!-- option태그 각각에 name설정해도 됨   -->
+<select name="job">
+        <option value="학생">학생</option>
+        <option value="교사">교사</option>
+        <option value="개발자">개발자</option>
+</select>
+<br>
+<h4>성별</h4>
+<!-- 남자 여자 둘중 하나를 선택해야 한다 그룹으로 묶는다 동일 name -->
+<input type="radio" name="gender" value="남자" >남자
+<input type="radio" name="gender" value="여자" >여자
+<br>
+<h4>취미</h4>
+<!-- 취미는 다수 선택 가능 여기도 그룹으로 묶는다 동일 name  -->
+<input type="checkbox"  name="hobby"  value="축구">축구
+<input type="checkbox"   name="hobby" value="야구">야구
+<input type="checkbox"   name="hobby" value="농구">농구
+<br>
+<br>
+		<input type="submit" value="제출">
+</form>
+
+
+
+</body>
+</html>
+<!-- value값 중요함-> 콘솔이나 페이지 출력시  value값이 출력됨 만약 type ="text" 라면 value값이 곧 text값이다  -->

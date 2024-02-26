@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 // 주석처럼 사용되는 기능 --> 차이점 : 무언가를 실제로 실행할수 있는 기능을 가지고 있다
 // url 맵핑 기술 제공
 // @WebServlet("/EX01_PRINT") --> @WebServlet("/PRINT") --> url이 변경 --> 'http://localhost:8080/Servelet1/PRINT'
+//                                                                         http://localhost:8080/Servelet1/EX01_PRINT
 // 완전 주소를 보이는 것은 내 개인 정보 유출인 것 같다 그래서 다른이름을 준다
 // @WebServlet : url 맵핑 기술
 // /기호는 반드시 존재 맵핑에게 인지를 주는 것
+
 @WebServlet("/PRINT")
 public class EX01_PRINT extends HttpServlet {
 	
@@ -39,6 +41,7 @@ public class EX01_PRINT extends HttpServlet {
 		//out.print("정재은");
 		
 		// 태그 출력 가능 --> 위의 코드 setContentType("text/html) 주었으므로~ --> 즉 페이지에 텍스트와 함께 태그도 사용가능
+		// 사실 위의 코드 setContentType("text/html) 주었으므로가 아니고 서브릿이 html로 출력하므로 태그사용가능하다
 		out.print("<h1>정재은</h1>");
 	}
 
