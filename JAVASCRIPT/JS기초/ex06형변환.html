@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 형변환 
+//1.문자를 정수와 실수로 각각 변환
+// parseInt --> 문자를 정수로
+// parseFloat-->문자를 실수로
+// 하지만 타입은 둘다 Number형태
+// Number--> 문자를 정수 ,실수 알아서 각각 변환
+
+let textint = "3";
+let textfloat = "3.14";
+console.log(textint);  //문자
+console.log(parseInt(textint));
+console.log(textfloat); //문자
+console.log(parseFloat(textfloat));
+console.log(parseInt(textfloat));
+
+console.log(Number(textint));
+console.log(Number(textfloat));
+
+
+
+// 2. 숫자를 문자로 만드는 경우
+
+let number = 10;
+console.log(String(number));
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+    
+</body>
+</html>

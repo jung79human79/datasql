@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 프롬프트 입력은 무조건 문자열
+
+        // 1.사용자에게 2개의 숫자를 입력받기 --? ???사용/변수에 담기
+        let name1 = Number(prompt("첫번째 숫자을 입력하세요!"));
+        let name2 = Number(prompt("두번째 숫자을 입력하세요!"));
+        let name3 = prompt("첫번째 숫자을 입력하세요!");
+        let name4 = prompt("두번째 숫자을 입력하세요!");
+        let name5 = prompt("첫번째 숫자을 입력하세요!");
+        let name6 = prompt("두번째 숫자을 입력하세요!");
+
+        // Number(name2) --> 변수를 형변환 하는것은 정석이 아니다.
+
+        //2. 콘솔창에 문자형태로 더하는 출력문
+        console.log(name3 + name4);  //문자열타입
+
+        //3. 콘솔창에 숫자가 더해져서 출력하는 출력문
+
+        console.log("name1과 name2를 더한 값" , name1 + name2);
+        console.log(name1 - name2);
+
+       // 4.확인해보자!
+        console.log(Number(name5 + name6)); 
+
+        
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

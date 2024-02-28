@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,21 +9,25 @@
 <body>
 
 
-<table border=1>
-<tr>
+	<table border=1>
+		<tr>
 
 
-<% for(int i =1; i<=10; i++) { %>
-	
-	<td> <%= i %> </td>
-	
-<% }
+			<%
+			for (int i = 1; i <= 10; i++) {
+			
+				
+			// out은 jsp의 내장객체로 따로 선언하지 않아도 
+			// 호출해서 사용가능
+			out.print("<td>" + i+ "</td>");
 
-%>
+			
+			}
+			%>
 
 
-</tr>
-</table>
-	
+		</tr>
+	</table>
+
 </body>
 </html>
