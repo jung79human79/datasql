@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id ="txt"><span>안녕하세요</span></h1>
+    <!-- "changerxt()" -> 함수명을 노출하면 해캥위험 -->
+    <button onclick="changerxt()">변경</button>
+    <!-- 일반함수(이벤트핸들러방식) -->
+    <button id ="btn">변경2</button>
+    <!-- 익명함수 -->
+    <button id ="btn2">변경3</button>
+    <script>
+        // 사용자의 이밴트를 감지해서 페이지 변경
+        // 접근법과 함수만들기가 중요
+        // 자바언어와 html태그를 같이 사용
+        // h1태그의 컨텐츠 값을 콘솔창에 출력
+        // 2개 코드를 연결  --> document 오브젝트 
+         let h1 = document.getElementById("txt").innerHTML
+         // 태그(요소)안의 태그를 출력
+        console.log(h1)
+
+
+        let h2 = document.getElementById("txt").innerText
+        // 태그(요소)의 컨텐츠 즉 텍스트를 출력 --> h1 span 태그 안의 텍스트만 출력
+        console.log(h2)
+        
+        // 요소접근..innerHTML --> html태그를 인식
+        // 요소접근..innerText --> 태그를 무시하고 순수 컨텐츠만 출력
+
+        // 특정요소의 컨텐츠를 출력
+        document.getElementById("txt").innerHTML="점심입니다"
+        // 태그를 인식하고 태그까지 변경
+        document.getElementById("txt").innerHTML="<a>점심입니다</a>"
+        // 따옴표 중요 --> 문자열을 작성시 ""묶는 경우에는 속성에 따옴표기 필요하면 ''로 처리
+        // 반대경우에는 반대로 작성.
+        document.getElementById("txt").innerHTML="<a href='https://www.naver.com/'>점심입니다</a>"
+        
+        //확인필요
+        document.getElementById("txt").innerText="<a>점심입니다</a>"
+
+        //함수제작
+        function changerxt() {
+            document.getElementById("txt").innerHTML="<a href='https://www.naver.com/'>점심입니다</a>"
+        }
+        // 버튼태그와 함수를 연결 --> 태그에 함수명을 속성으로 주기
+        // 함수호출
+        //changerxt()
+
+        //함수를 연결시키는 방법
+        //1.태그안에 직접 작성하는 인라인 방식
+        //단점 : 보안에 취약 ,이벤트를 1개 밖에 명시할 수가 없다
+        // 사용처 : alert()처럼 내장함수(누구나 아는 기본)는 사용해도 좋다
+
+        // 2. 이벤트핸들러를 통한 이벤트 부여  --> 컴에게 자바스크립으로 알려줌 개발자도구에서 안보임 ->보안굿
+        document.getElementById("btn").addEventListener("click",changerxt())
+        
+        document.getElementById("btn").addEventListener("click",changerxt)
+        // 컴은 html태그를 먼저 읽고 자바스크립을 읽는다
+        // changerxt()은 바로 실행을 해버린다
+        // 주의점 !이벤트를 붙일 때 ()을 제거하고 함수명만 작성할 것 ->
+
+
+        // 3. 익명 함수 --> 이름이 없는 함수 --> 오직하나의 요소를 위해 동작하는 함수를 제작
+        // 버튼3에게만 연결
+        // 직접 매개변수에 함수코딩
+        document.getElementById("btn2").addEventListener("click",function(){
+             alert("익명함수")
+        })
+
+
+    </script>
+</body>
+</html>

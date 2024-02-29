@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //**자바코드**
+        // 배경색 바꾸는 방법
+        // 명령을 document(최상위객체) 에게 준다. // 크롤링에서 주체는 driver이라면 html에서 주체는 document
+        // body태그는 1개이므로 [0] -> getElements는 복수이므로 단수개만 가져온다
+        // body(객체), style(키이자객체), backgroundColor(키이자객체)
+
+        // 아래의 코드를 자바 변수라 보고 = 로 값을 준다.
+        // document.getElementsByTagName("body")[0].style.backgroundColor = "red"
+        let style = document.getElementsByTagName("body")[0].style.backgroundColor
+
+
+
+
+        // 1.사용자에게 원하는 색깔 3가지를 입력 (빨,파,초)
+         let color = prompt("색깔을 입력하세요!")
+
+
+
+        //2. 입력한 값이 빨이면 ->빨강으로 배경을 변경
+        if (color =="빨강"){
+            document.getElementsByTagName("body")[0].style.backgroundColor ='red'
+
+            //style = "red"  --> 명령주체에 접근해야함 ,이것은 문자열로 값만 저장되므로 콘솔에 red로 찍힌다
+            //console.log(style)
+        }else if(color =="파랑"){
+            
+            //style = "blue"
+        }else if(color =="초록"){
+
+            //style = "green"
+        }
+
+    </script>
+</body>
+</html>

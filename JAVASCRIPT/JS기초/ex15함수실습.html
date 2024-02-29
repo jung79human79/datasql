@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 사용자에게 숫자2개를 입력
+        // addNumber()함수를 제작해 입력받은 2갱의 값을 더한 결과를 출력하는 함수
+        // 함수를 호출해서 결과를 확인
+
+        let num1 = parseInt(prompt("첫번째숫자"))
+        let num2 = parseInt(prompt("두번째숫자"))
+        
+        // 사용자의 입력값을 함수의 매개변수로~
+        function addNumber (num1,num2) { 
+            return num1+num2
+        }
+        // 함수의 리턴값을 변수에 저장 후 출력해야 한다
+        let result = addNumber(num1,num2)    
+        //console.log("리턴",result)
+        alert("더하기"+result)
+
+        // 사용자의 입력값을 함수의 매개변수로~ --> 리턴값없이 만들자
+        function addNumber (num1,num2) { 
+            alert(num1+num2)
+        }
+       addNumber(num1,num2)
+
+       //function addNumber (num1,num2) {alert(num1+num2)}
+
+       // 함수를 변수에 저장한다
+       // let plus =() =>{
+       //}
+       // 중가로 안에 실행코드가 1개라면~
+       //let plus = (num1,num2) => alert(num1+num2) 
+        
+     // 에러가 발생하면 반드시 console.log()를 통해서 확인하는 습관을 들이자
+    </script>
+    
+
+
+    
+</body>
+</html>
