@@ -38,7 +38,7 @@ public class EX01_PRINT extends HttpServlet {
 		// out.print("hello world!!"); --> 영문은 인코딩 없이 가능하다
 		
 		// 응답전에 한글 인코딩해야함 --> 매서드 최상단에서 코딩
-		//out.print("정재은");
+		out.print("정재은");
 		
 		// 태그 출력 가능 --> 위의 코드 setContentType("text/html) 주었으므로~ --> 즉 페이지에 텍스트와 함께 태그도 사용가능
 		// 사실 위의 코드 setContentType("text/html) 주었으므로가 아니고 서브릿이 html로 출력하므로 태그사용가능하다

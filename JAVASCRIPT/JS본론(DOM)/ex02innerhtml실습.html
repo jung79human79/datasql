@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>버튼을 통해서 내용을 입력하세요</h1>
+    <div id="area"></div>
+    <button id="btn1">h1태그 생성</button>
+    <button id="btn2">a태그 생성</button>
+    <button id="btn3">ul태그 생성</button>
+
+
+    <h1>버튼을 통해서 내용을 입력하세요</h1>
+    <div id="area1"></div>
+    <button id="btn4" onclick="dd()">h1태그 </button>
+    <button id="btn5">a태그 </button>
+    <button id="btn6">ul태그 </button>
+
+
+
+
+
+
+    <script>
+        //1. 각각 버튼을 눌렀을 때 버튼에 해당하는 태그를 생성
+        // 이벤트핸들러를 통한 이벤트 부여 -> 함수를 생성 후 한다
+        function aa() {
+            document.getElementById("area").innerHTML += "<h1>DOM 활용하기</h1>"
+        }
+        function bb() {
+            document.getElementById("area").innerHTML += "<a href='https://www.google.com/'>google로 이동</a>"
+        }
+        function cc() {
+            document.getElementById("area").innerHTML += "<ul><li>html</li><li>css</li><li>js</li></ul>"
+
+        }
+
+
+        document.getElementById("btn1").addEventListener("click", aa)
+        document.getElementById("btn2").addEventListener("click", bb)
+        document.getElementById("btn3").addEventListener("click", cc)
+
+
+
+        //2. 비어있는 div영역에 생성한 내용을 추가(누적해서 출력)
+        // innerHTML 사용 //연산자 사용(복합대입연산자)
+
+
+        // 교수님 방식
+        // 인라인 방식 
+
+        function dd() {
+            // id가 area작성된 div영역에 컨텐츠로 h1내용을 넣겠다
+            // 내용을 누적할때는 복합대입연산자 활용하자
+            document.getElementById("area1").innerHTML += "<h1>h1태그로 생성</h1>"
+        }
+
+        // 이벤트핸들러
+        function ee() {
+            document.getElementById("area1").innerHTML += "<a href='https://www.google.com/'>google로 이동</a>"
+        }
+        document.getElementById("btn5").addEventListener("click", ee)
+
+        // 익명함수
+
+        // document.getElementById("btn3").addEventListener("click",function(){
+        //      // 엔터를 치면 에러발생 html코드와는 다르다 
+        //         가독성이 떨어진다
+        //      document.getElementById("area").innerHTML += "<ul><li>html</li><li>css</li><li>js</li></ul>"
+
+        // })
+
+        // 3.탬플릿을 통한 가독성 있는 문장 작상법
+        document.getElementById("btn6").addEventListener("click", function () {
+            let str = `<ul>
+                        <li>html</li>
+                        <li>css</li>
+                         <li>js</li>
+                      </ul>`
+            // 백틱키 사용 ->가독성좋다
+            // 변수에 담아 사용가능
+            document.getElementById("area1").innerHTML += str
+
+        })
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

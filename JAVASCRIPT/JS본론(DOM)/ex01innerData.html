@@ -8,7 +8,7 @@
 <body>
     <h1 id ="txt"><span>안녕하세요</span></h1>
     <!-- "changerxt()" -> 함수명을 노출하면 해캥위험 -->
-    <button onclick="changerxt()">변경</button>
+    <button onclick="changerxt()" >변경</button>
     <!-- 일반함수(이벤트핸들러방식) -->
     <button id ="btn">변경2</button>
     <!-- 익명함수 -->
@@ -56,7 +56,7 @@
         // 사용처 : alert()처럼 내장함수(누구나 아는 기본)는 사용해도 좋다
 
         // 2. 이벤트핸들러를 통한 이벤트 부여  --> 컴에게 자바스크립으로 알려줌 개발자도구에서 안보임 ->보안굿
-        document.getElementById("btn").addEventListener("click",changerxt())
+        document.getElementById("btn").addEventListener("click",changerxt()) // () 쓰면 안됨
         
         document.getElementById("btn").addEventListener("click",changerxt)
         // 컴은 html태그를 먼저 읽고 자바스크립을 읽는다
