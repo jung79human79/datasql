@@ -21,6 +21,7 @@ public class ex03MainSession extends HttpServlet {
 
 	// 1. 세션 생성하기 --> 세션은 서버에서 자동으로 id를 발급하므로
 	// 우리는 세션을 가져오는 것이다
+	// 
 		HttpSession session = request.getSession();
 		
 		// 2. 세션안에 데이터 저장해보기 --> 자동발급된 세션id 안에~
@@ -29,7 +30,7 @@ public class ex03MainSession extends HttpServlet {
 		// (문자열, object value = list)
 		// object value = new ArrayList<String>();  --> 업캐스팅
 		// **setAttribute하는 순간 업캐스팅
-		// >> 자식클래스가 부모클래스로 자동으로 형변환
+		// >> 자식클래스가 부모클래스로 자동으로 형변환 
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("김운비");
 		session.setAttribute("testsession", list);
@@ -61,9 +62,9 @@ public class ex03MainSession extends HttpServlet {
 		// 속도: 느림
 		// ** 너무 많이 쓰면 서버속도가 저하
 		
+		//   http://localhost:8080/cookiesession/Ex02_GetSession.jsp
 		
-		
-	
+	   // 메인에서 저장이되고 sendRedirect된다 고로 겟세션jsp파일로 이동하면서 페이지 보여준다
 	
 	
 	

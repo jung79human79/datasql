@@ -1,0 +1,60 @@
+<!-- xml 파일이란 >> 사용자 정의 태그를 쓸수 있는 파일
+                >> extensible markup language 
+                >> xml 파일에서 제일먼저 해줘양 하는 일은  스키마(xsd) 혹은 정의파일(dtd)을 로딩하는 작업부터 해줘야 한다
+                >> 아래쪽에서 어떤 태그를 쓸건지 정해주는 작업부터 진행해야 한다-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.smhrd</groupId>
+  
+  <artifactId>MavenSample01</artifactId>
+  
+  <!-- 내보낼때 확장자 .war  -->
+  <packaging>war</packaging>
+  
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <name>MavenSample01 Maven Webapp</name>
+  
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+  
+  <!-- 라리브러리를 로딩하는 공간   -->
+  <!-- dependencies안에 또다른 라리브러리 추가가능  -->
+  
+  <dependencies>
+	  
+	  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>8.0.33</version>
+	</dependency>
+
+	  
+	  <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>jstl</artifactId>
+    	<version>1.2</version>
+	</dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>MavenSample01</finalName>
+  </build>
+</project>

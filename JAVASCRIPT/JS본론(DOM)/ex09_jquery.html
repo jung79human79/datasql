@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="txt">텍스트</h1>
+
+  <script>
+// 제이퀴리는 라이브러리
+// 사용하기 위해서는 임포트 작업을 진행 --> 파이썬 라이브러리 처럼
+// 1. 외부방식 (파일을 불러들이는 것) -> 로컬 개발 때 사용
+// 2. 외부방식 (cdn=url주소를 통해서 불러들이는 것) -> 코드를 배포할 때
+// 밑에 코드가 1,2 방식임
+// script안에 script를 쓸수는 없다 --> 독립적임
+
+
+// 1. id가 txt요소의 텍스트를 추출
+document.getElementById("txt").innerHTML 
+document.getElementById("txt").innerHTML ="수정"
+
+$("#txt").html()  //위의코드와 동일 ->추출
+$("#txt").html("<h2>수정</h2>") //위의코드와 동일 ->수정
+
+// 2. 스타일 변경
+document.getElementById("txt").style.color = "red"
+$("#txt").css("color","red") // (스타일속성 ,값)
+
+// 3.스타일 복수 변경
+// 복수개를 넣을 때는 객체 형태의 매개변수로 전달한다
+document.getElementById("txt").style.cssText = "color: blue; background-color: yellow;";
+$("#txt").css({
+    color: 'red',
+    backgroundColor:"yellow"
+})
+
+
+// j쿼리 함수기반 --> 매개변수 --> 복수라면 객체
+// DOM 방식 객체기반 --> .키
+  </script>  
+
+ <script src ="jquery-3.7.1.min"></script>
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+    
+</body>
+</html>

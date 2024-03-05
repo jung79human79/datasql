@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+<li class="txt">1</li>
+<li class="txt">2</li>
+<li class="txt">3</li>
+
+    </ul>
+
+<script>
+// li의 모든 값을 콘솔창에 출력
+// 복수개 가져오자 --> 유사배열 --> collection객체 --> for문 사용
+let arr =[1,2,3]
+console.log(arr)   // 2개의 코드를 콘솔에 비교해보자 (진짜배열과 유사배열)
+console.log(document.getElementsByClassName("txt"))
+for (let i=0; i<document.getElementsByClassName("txt").length; i++){
+    console.log(document.getElementsByClassName("txt")[i])
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+    
+</body>
+</html>

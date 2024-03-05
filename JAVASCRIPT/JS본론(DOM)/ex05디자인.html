@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <span id="txt">퇴근하고싶어요!</span>
+    <br><br>
+    <span id="txtx">출근하고싶어요!</span>
+    <br><br>
+    <button id="btn" onclick="changestyle()">디자인변경1</button>
+    <button id="btn2" onclick="changesty()">디자인변경2</button>
+
+    <script>
+// 1.버튼을 클릭시 디자인을 변경하는 함수를 실행 -->함수제작
+// 2.함수제작 --> id가 txt요소의 스타일 변경,글자크기 ,색상 ,두께
+function changestyle(){
+    //alert("함수실행"); //함수호출 검증작업
+    //console.log(123);  // 함수호출 검증작업
+    console.log(document.getElementById("txt").style)
+    // 모든 스타일을 관장하는 최상위 객체는 -->style  cf)innerHTML와 비교
+    // style을 콘솔에서보면 딕구조 --> .키로 불러와서 밸류를 대입해준다
+    
+    document.getElementById("txt").style.color = "red";
+    document.getElementById("txt").style.fontSize = "50px";
+    document.getElementById("txt").style.fontWeight = "bold";
+    
+
+}
+function changesty(){
+    //css를 효율적으로 작성해보자
+    // 반복을 그룹화 
+    document.getElementById("txtx").style.cssText = "color: blue; background-color: yellow;"
+
+}
+
+// 직접 스타일을 제어하는 경우에는 인라인 방식으로 스타일이 작성
+// --> 보안 취약하고 유지보수가 힘들다 --> 단순한 스타일 제어 할때만 사용
+// --> 대량 스타일 제어는 css에서 클래스로 접근~
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

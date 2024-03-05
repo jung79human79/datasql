@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img id="img" class="imgimg" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5353%2F2024%2F02%2F28%2F0000931702_001_20240228163201750.jpg&type=a340" alt="">
+    <br>
+    <button onclick="changeimg()">이미지변경1</button>
+    <button onclick="change()">이미지변경2</button>
+    <button onclick="cha()">이미지변경3</button>
+    <button onclick="ch()">이미지변경4</button>
+<script>
+
+function changeimg(){
+    // 지금까지 뽑아낸 키 inner , style ,src ,css
+    
+    console.log(document.getElementById("img").src)
+
+    document.getElementById("img").src= "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F022%2F2024%2F01%2F07%2F20240105512039_20240107094002040.jpg&type=a340"
+    console.log(document.getElementById("img").src)
+    
+        
+    
+   
+
+
+}
+
+function change(){
+    // ("","")  --> ("태그즉요소의 속성" ,"값")
+    document.getElementById("img").setAttribute("src","https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F008%2F2023%2F12%2F06%2F0004970477_002_20231206050001109.jpg&type=a340")
+
+}
+ // document.getElementById("img").getAttribute("class")  // 정적 --> Attribute
+ // document.getElementById("img").className               //동적 --> property
+
+
+</script>
+
+
+    
+</body>
+</html>
