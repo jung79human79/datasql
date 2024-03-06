@@ -33,7 +33,7 @@
 	${session.nickname}님 환영합니다.
 	<!-- el의 장점
 		>> request ,session (scope/저장공간 범위) 등등
-		해당하는 공간에서 알아서 찾아서 다운캐스팅까지 진행
+		해당하는 공간에서 알아서 찾아서 다운캐스팅=형변환 까지 진행
 		>> 화면에 출력  
 		>> request는 응답이 오면 종료 session은 브라우저 닫으면 종료
 		>> 동일한 nickname이 두곳에 다 있을 경우 범위가 좁은 request에서 찾는다

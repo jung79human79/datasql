@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--1) 어떤 사용자 정의 태그를 쓸건지 dtd 잡아주기
+dtd란 >> 도큐멘트 타입 디피니션
+   -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+ <!--2)  configuration은 모양을 관리 -> mybatis 설정값들을 작성하는 공간 --> 
+<configuration>
+
+<!--3) environments 여러개 환경(db) 들어감  -> db들을 기술하는 공간 -->
+  <environments default="development">
+  
+  <!-- 4) environment : db 한개를 기술하는 공간  -->
+    <environment id="development">
+      <!--5)transactionManager : 생성이나 업데이트후 최종 변환을 결정 commit; rollback; 등의 쿼리문을 사용해서 최종 결정할 건지 되돌릴 건지를 결정 
+      transaction ->commit과 rollback의 주체 대상 결정  
+      type = "jdbc" >> 내가 commit; rollback; 결정
+      type = "managed" >> 외부 컨테이너에게 commit; rollback; 결정-->
+      <transactionManager type="JDBC"/>
+      <!--6) dataSource : db 환경을 설정하는 공간  
+      type = "POOLED" >> dbcp 기술을 사용 
+      type = "UNPOOLED" >> jdbc방식 >> 요청이 들어올 때마다 connection 객체 셍성
+      -->
+      
+      <!-- dbcp : 디비 연결 수영장 (한정적인 수영장) = 미리 만들어 놓은 connection 객체을 수영장안에서 한정으로 사용한다   -->
+      <!-- 빌려다 쓰고 다시 수영장에 반납한다 >> 자원의 재활용 , 서버터지는 것 방지효과 
+      >>connection 객체를 미리 생성해 놓고 요청이 들어올때마다 빌려쓰는 방식 -->
+      
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/bigdata"/>
+        <property name="username" value="root"/>
+        <property name="password" value="12345"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <!--7)mappers :   mapper라는 파일들을(복수) 기술하는 공간  ,map는 연결의 의미-->
+  <mappers>
+  <!-- 8)mapper : sql구문을 가지고 있는 파일  
+  mapper파일이 추가 될 때마다 ,해당하는 공간을 수정해야 함-->
+    <mapper resource="com/smhrd/database/MemberMapper.xml"/>
+  </mappers>
+</configuration>
