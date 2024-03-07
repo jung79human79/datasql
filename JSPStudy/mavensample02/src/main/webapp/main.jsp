@@ -1,3 +1,6 @@
+<!--MemberVo파일 import  -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="com.smhrd.model.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,6 +12,19 @@
 	</head>
 	
 	<body>
+	
+	
+	<%
+		// 1.세션영역안에 저장된 데이터 꺼내오기
+		// 내장객체 session 자동가져옴
+		
+		MemberVo mvo =(MemberVo)session.getAttribute("member");
+	
+	%>
+	
+	
+	
+	
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -17,7 +33,21 @@
 					<header id="header" class="alt">
 						<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
 						<nav>
-								<a href="#menu">로그인</a>
+						<!-- jstl 방식  -->
+								<c:if test="${member != null}">
+								<a href="#">개인정보 수정</a>
+								
+								<a href="#">로그아웃</a>
+							
+								</c:if>
+						     <c:if test="${member == null}">
+									<a href="#menu">로그인</a>
+							
+							</c:if>
+							
+								
+								
+								
 							<!-- 로그인 후 Logout.jsp로 이동할 수 있는'로그아웃'링크와 '개인정보수정'링크를 출력하시오. -->
 						</nav>
 					</header>
@@ -26,15 +56,15 @@
 					<nav id="menu">	
 						<ul class="links">
 							<li><h5>로그인</h5></li>
-								<form >
-									<li><input type="text"  placeholder="Email을 입력하세요" ></li>
-									<li><input type="password"  placeholder="PW를 입력하세요" ></li>
+								<form action="LoginService" method ="post">
+									<li><input type="text"  name = "email" placeholder="Email을 입력하세요" ></li>
+									<li><input type="password" name = "pw" placeholder="PW를 입력하세요" ></li>
 									<li><input type="submit" value="LogIn" class="button fit" ></li>
 								</form>
 						</ul>
 						<ul class="actions vertical">
 							<li><h5>회원가입</h5></li>
-								<form action="joinservice" method ="post">
+								<form action="JoinService" method ="post">
 								<!--  전송해야하는 데이터에 name값을 달아줄때 db 테이블의 컬러명과 일치시키자!! -->
 									<li><input type="text"  placeholder="Email을 입력하세요" name = "email"></li>
 									<li><input type="password"  placeholder="PW를 입력하세요" name = "pw"></li>
@@ -48,9 +78,20 @@
 					<section id="banner" class="major">
 						<div class="inner">
 							<header class="major">
-										<h1>로그인 한 세션아이디를 출력해주세요</h1>
-								<!-- 로그인 후 로그인 한 사용자의 세션아이디로 바꾸시오.
-									 ex)smart님 환영합니다 -->
+							<%if(mvo != null) {%>
+							
+							<h1><%= mvo.getEmail()%>님 환영합니다</h1>
+							
+							<%}else{%>
+										<h1>로그인 해주세요</h1>
+								<%} %>
+								
+								
+								
+										
+											
+								<!-- 로그인 후 로그인 한 사용자의 세션아이디로 바꾸시오. ex)smart님 환영합니다 -->
+									 
 							</header>
 							<div class="content">
 								<p>아래는 지금까지 배운 웹 기술들입니다.<br></p>
@@ -167,7 +208,8 @@
 									<div class="contact-method">
 										<span class="icon alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="#">로그인 한 사람의 이메일을 출력</a>
+										<a href="#">${member.email}</a>
+										
 										<!-- 로그인 한 사용자의 이메일을 출력하시오 -->
 									</div>
 								</section>
@@ -175,7 +217,7 @@
 									<div class="contact-method">
 										<span class="icon alt fa-phone"></span>
 										<h3>Phone</h3>
-										<span>로그인 한 사람의 전화번호를 출력</span>
+										<span>${member.tel}</span>
 										<!-- 로그인 한 사용자의 전화번호를 출력하시오 -->
 									</div>
 								</section>
@@ -183,7 +225,7 @@
 									<div class="contact-method">
 										<span class="icon alt fa-home"></span>
 										<h3>Address</h3>
-										<span>로그인 한 사람의 집주소를 출력</span>
+										<span>${member.address}</span>
 										<!-- 로그인 한 사용자의 집주소를 출력하시오 -->
 									</div>
 								</section>

@@ -33,7 +33,19 @@
 							<li><h1>환영합니다!</h1></li>
 							<li>회원가입을 축하합니다.</li>
 							<!-- request영역에 저장된 회원정보 중 이메일을 출력하시오. -->
-							<li>메세지시스템의 새로운 이메일은 smart@naver.com입니다.</li>
+							
+							<!-- jsp영역에서는 내장객체(함수) 사용 가능 request가 바로 내장객체 -->
+							
+							<!-- 3가지 방식 -->
+								
+							<%String email = request.getParameter("email");%>
+							<li>메세지시스템의 새로운 이메일은 <%=email %>입니다.</li>
+							
+							
+							<li>메세지시스템의 새로운 이메일은 ${email}입니다.</li>
+							
+							<li>메세지시스템의 새로운 이메일은 <%=(String)request.getAttribute("email")%>입니다.</li>
+							
 							<li><button onclick='location.href="main.jsp"'>시작하기</button></li>
 						</ul>
 					</nav>			
