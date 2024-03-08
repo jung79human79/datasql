@@ -16,6 +16,7 @@
    
    <!-- 회원가입 기능 -->
   <insert id="join" parameterType="com.smhrd.model.MemberVo">
+  <!-- insert 쿼리문-->
     insert into b_member
     values(#{email},#{pw},#{tel},#{address})
   </insert>
@@ -25,7 +26,7 @@
   <select id="login" parameterType="com.smhrd.model.MemberVo"
                      resultType ="com.smhrd.model.MemberVo"
   >
-  
+  <!--  select 쿼리문-->
    select email,tel,address
    from b_member 
    where email = #{email}
@@ -33,8 +34,18 @@
   
   </select>
   
+  <!-- 전체회원 정보 기능 -->
+  <!-- dao에 함수에 매개변수 없으므로 parameterType은 안써도 됨 -->
+  <select id="selectAll" resultType ="mvo">
+  select email,tel,address
+  from b_member 
+  </select>
+  
+  
+  
   <!-- resultType의 동작원리 
-  1. MemberVo vo = new MemberVo() 
+  1. MemberVo vo = new MemberVo() 객체 즉 클래스 생성
+  select email,tel,address 이므로 아래 3가지를 셋팅
   2. vo.setEmail(email)
   3.vo.setTel(tel)
   4.vo.setAddress(address)
@@ -42,7 +53,5 @@
   ** 만약 조회한 컬럼과 이름이 일치하는 필드명이 객체안에 존재하지 않는다면
   동작하지 않고 에러 발생
   >> 해결법은 1.객체 필드명 바꾸기 2. sql구문에서 alias부여하기
-  -->
-  
-  
-</mapper>
+  --> 
+ </mapper>

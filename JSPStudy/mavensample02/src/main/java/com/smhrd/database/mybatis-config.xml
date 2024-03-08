@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!-- 1) 어떤 사용자 정의 태그를 쓸건지 dtd 잡아주기
    dtd란?
    : document type definition
@@ -6,14 +7,20 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <!-- 2) configuration : mybatis 설정값들을 작성하는 공간 -->
 <configuration>
+ <!-- 내가 사용할 객체들의 별칭을 지정할수 있는 공간 -->
+ <typeAliases>
+ <typeAlias type="com.smhrd.model.MemberVo" alias="mvo"/>
+ </typeAliases>
+
   <!-- 3) environments : DB들을 기술하는 공간 -->
   <environments default="development">
      <!-- 4) environment : DB 1개를 기술하는 공간 -->
     <environment id="development">
       <!-- 5) transactionManger : commit과 rollback 주체 대상 결정
-              type = "JDBC" >> 내가 commitm rollback 결정
+              type = "JDBC" >> 내가 commit과 rollback 결정
               type = "MANAGED" >> 외부 컨테이너에게 commit, rollback 결정 
        -->
       <transactionManager type="JDBC"/>

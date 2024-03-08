@@ -6,7 +6,8 @@
   <packaging>war</packaging>
   <dependencies>
 	 <!-- 라이브러리를 기술하는 공간  --> 
-	  <!-- mybatis 라이브   -->
+	  
+	  <!-- mybatis 라이브러리   -->
 	  <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 <dependency>
     <groupId>org.mybatis</groupId>
@@ -29,15 +30,7 @@
     	<version>1.2</version>
 	</dependency>
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-  </dependencies>
+</dependencies>
  
   <build>
     <plugins>

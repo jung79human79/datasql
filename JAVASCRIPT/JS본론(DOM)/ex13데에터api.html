@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="text"></div>
+    <button id="btn">요청</button>
+
+    <script>
+        // 1.버튼을 클릭시 api url의 데이터를 요청
+        $("#btn").on("click",function () {
+            // ajax를 통해서 비동기로 요청
+            // 제이쿼리안의 ajax를 쓰자
+            $.ajax({
+                // 1.요청을 보낼 서버의 주소
+                // 폼태그의 액션
+                // 이 사이트의요청을 보낸다
+                // 프로젝트시 url -> 백엔드 컨트롤러와 연관 있는 부분 /join
+                url : "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=21a6d378749486e01ad4c0279836b553&targetDt=20240304",
+                // 폼태그의 메서드
+                // 2.요청방법명시(get ,post)
+                type : "get",
+                // 3.데이터를 보내는 공간
+                // 폼태그의 인풋태그
+                // 데이터를 보낼 때는 data : "넘길데이터"
+                
+                // 4.응답데이터를 처리 공간(성공)
+                // 응답 성공시에는 매개변수에 저장 시킬 것
+                // 제이슨 -> 자바스크립트 객체 데이터 -> 키와 인덱스를 잘 활용해서 꺼내오기
+                // res -> 같은 브라우저 공간 세션으로 저장해서 백엔드로~~ 
+                success: function(res){     
+                   // console.log("통신성공") // 어디에 저장한 건지 정의해야함 자료룔 주기는 주었는데 그 자료를 매개변수 res에 담는다
+                   //console.log(res)
+                   
+                   //console.log(res.boxOfficeResult.dailyBoxOfficeList[0].movieNm)
+                  // $("#text").html(res.boxOfficeResult.dailyBoxOfficeList[0].movieNm)
+                  
+                  // 모든 데이터를 랭크 ,영화이름 ,개봉일자를 출력
+                  
+                  console.log(res.boxOfficeResult.dailyBoxOfficeList)
+                  for(let i =0;  i<res.boxOfficeResult.dailyBoxOfficeList.length; i++){
+                    // 제이쿼리에서는 함수기반이므로 += 복합대입연산자 안됨 고로 .append로 누적함
+                    //$("text").append("<span>랭크 : " + res.boxOfficeResult.dailyBoxOfficeList[i].rank + "</span>")
+                    // ${} 는 jsp에서 <%= %>과 같다
+                    let str =
+                    `
+                    <span>랭크 : ${res.boxOfficeResult.dailyBoxOfficeList[i].rank} </span>
+                    <span>개봉일 : ${res.boxOfficeResult.dailyBoxOfficeList[i].openDt} </span>
+                    <span>영화제목 : ${res.boxOfficeResult.dailyBoxOfficeList[i].movieNm} </span>
+                    <br>
+                    `
+                    $("#text").append(str)
+                    
+                }
+                },
+                // 5.응답데이터를 처리 공간(실패)
+                error : function(){
+                    alert("요청실패")
+                }
+            })
+        
+
+        })
+
+
+
+        // 2. 성공시 dib태그안에 내용을 넣겠다
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

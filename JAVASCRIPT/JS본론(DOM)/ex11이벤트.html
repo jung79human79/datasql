@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCript src ="jquery-3.7.1.min.js"></SCript>
+</head>
+<body>
+
+<h1 id="txt">변경할 데이터</h1>
+<script>
+// 1. h1태그에 마우스를 올릴때 글자색을 파란색으로 변경
+$("#txt").on("mouseover",function(){
+    $("#txt").css("color","blue")
+    //alert("마우스를 대다")  태그의 범위에 마우스를 가져가면 작동
+})
+// cf)hover는 마우스를 대고 뗄때 실행되는 것~ 2개의 동작이 모두 들어감
+// 단순한 것은 css가 낫다
+// 마우스를 뗄때의 명령을 줘야함
+
+
+//2.마우스를 뗄때의 명령을 줘야함 검정색으로 변경
+$("#txt").on("mouseout",function(){
+    $("#txt").css("color","black")
+})
+
+//3. 마우스를 클릭시 배경색은 검은색 글자색은 흰색
+$("#txt").on("click",function(){
+    $("#txt").css("background-color","black")
+    $("#txt").css("color","white")
+    $("#txt").css({
+        color:"white",
+        backgroundColor:"black"
+    })
+})
+//4 마우스를 뗄때의 명령
+$("#txt").on("mouseout",function(){
+    $("#txt").css("background-color","white")
+    $("#txt").css("color","black")
+})
+
+
+
+
+
+
+</script>
+  
+</body>
+</html>

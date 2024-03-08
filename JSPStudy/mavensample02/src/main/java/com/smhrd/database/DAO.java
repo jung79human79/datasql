@@ -1,5 +1,8 @@
 package com.smhrd.database;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -55,6 +58,35 @@ public MemberVo login(MemberVo vo) {
 	
 	
 }
-   
-   
+
+public List<MemberVo> selectAll() {
+	// 연결객체 생성하기
+	// select 구문은 true 안넣어도 됨
+	SqlSession session = factory.openSession();
+	
+	// 연결객체 사용
+	 List<MemberVo> resultVo = session.selectList("selectAll");  //보내줄 데이터 없으므로 매개변수 1개사용
+	// MemberVo--> 회원 1명에 대한 정보
+	 // 우리가 필요한 것은 ?회원 여러명에 대한 정보 --> 몇 명인지 알수 없다
+	 // MemberVo 하나로 묶어서 표현하는 자료구조 중에 가변적인 것 >> ArrayList >> List
+	 // List란 ? 
+	 //--> ArrayList의 상위 클래스
+	 // --> 더 추상적인 클래스
+	 
+	 // **collection 구조** =자료구조 공부해야함
+	 
+	// 연결객체 반납하기
+	session.close();
+	
+	// 결과값 반환하기
+	return resultVo;
 }
+}
+
+	
+	
+
+
+
+   
+   

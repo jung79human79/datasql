@@ -19,10 +19,6 @@ public class MemberVo {
       this.address = address;
    }
    
-   
-   
-   
-   
    // 기본 생성자
    public MemberVo() {
    }
@@ -58,20 +54,5 @@ public class MemberVo {
 
    public void setAddress(String address) {
       this.address = address;
-   }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+   }   
 }
