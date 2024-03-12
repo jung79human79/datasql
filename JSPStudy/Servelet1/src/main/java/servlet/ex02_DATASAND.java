@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ex02_DATASAND extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	
 	// 해당 HttpServlet에서만 가능한 매서드 --> protected
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//한글에 대한 인코딩 작업 --> 한글 요청 받아들인 것에 대한 인코딩
@@ -40,7 +38,7 @@ public class ex02_DATASAND extends HttpServlet {
 		
 		// 2.넘어오는 데이터를 화면에 띄우기
 		// 입력한 값 서버로 전송하여 console창에 출력
-		//System.out.println("data:"+result);  --> 콘솔출력
+		System.out.println("data:"+result);  //--> 콘솔출력
 		
 		// html코드 --> 화면자체가 클라이언트의 요청이라고 볼수있다
 		// 서블릿자바코드는 웹 프로그래밍 --> 값을 코드대로 프로그램해서 서버로 전송 --> 새로운 html문서를 생성 --> 브라우저 --> 클라이에게 넘겨준다

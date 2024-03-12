@@ -35,7 +35,7 @@ public class EX01_PRINT extends HttpServlet {
 		// 웹 화면에 출력문 띄우기 -->도구필요
 		PrintWriter out = response.getWriter();
 		
-		// out.print("hello world!!"); --> 영문은 인코딩 없이 가능하다
+		out.print("hello world!!<br>");  //--> 영문은 인코딩 없이 가능하다
 		
 		// 응답전에 한글 인코딩해야함 --> 매서드 최상단에서 코딩
 		out.print("정재은");

@@ -17,7 +17,7 @@ public class ex00_Create extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	// 기본 생성자 메소드
-	// 초기화 작업을 진핼할 수 있는 메소드!
+	// 초기화 작업을 진핼할 수 있는 메소드! --> 클래스 생성시 맨처음 자동으로 생성되는 매서드
     public ex00_Create() {
     	
         super();
@@ -39,7 +39,7 @@ public class ex00_Create extends HttpServlet {
 	// 클라이언트 요청을 받아 서비스를 진행하는 메서드!
 	// 여러번 동작이 가능하다!
 	// 두 개의 매개변수 (request ,response)
-	// 브라저창이 뜨는데 새로고침 할 때마다 service,doGet,doPost 매서드는 호출된다..-->3개의 매서드는 protected 접근자이다
+	// 브라우저창이 뜨는데 새로고침 할 때마다 service,doGet,doPost 매서드는 호출된다..-->3개의 매서드는 protected 접근자이다
 	// HttpServletResponse response = HttpServletResponse는 response 매개변수의 데이터 타입인데 타입은 객체형
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("service 매서드호출");

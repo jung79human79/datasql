@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Servelet1" path="/Servelet1" reloadable="true" source="org.eclipse.jst.jee.server:Servelet1"/><Context docBase="servlet02" path="/servlet02" reloadable="true" source="org.eclipse.jst.jee.server:servlet02"/><Context docBase="jsp01" path="/jsp01" reloadable="true" source="org.eclipse.jst.jee.server:jsp01"/><Context docBase="jsp02" path="/jsp02" reloadable="true" source="org.eclipse.jst.jee.server:jsp02"/><Context docBase="cookiesession" path="/cookiesession" reloadable="true" source="org.eclipse.jst.jee.server:cookiesession"/><Context docBase="mavensample02" path="/mavensample02" reloadable="true" source="org.eclipse.jst.jee.server:mavensample02"/></Host>
+      <Context docBase="mavensample02" path="/mavensample02" reloadable="true" source="org.eclipse.jst.jee.server:mavensample02"/><Context docBase="mavensample03_FrontController" path="/web" reloadable="true" source="org.eclipse.jst.jee.server:mavensample03_FrontController"/><Context docBase="mavensample04_Final" path="/smhrd" reloadable="true" source="org.eclipse.jst.jee.server:mavensample04_Final"/></Host>
     </Engine>
   </Service>
 </Server>
