@@ -5,7 +5,20 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <dependencies>
+	    
 	 <!-- 라이브러리를 기술하는 공간  --> 
+	 <!-- java객체를 json구조로 변환시켜주는 라리브러리  --> 
+		 <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
+</dependency>
+
+		 
+		 
+		 
+		 
 	  
 	  <!-- mybatis 라이브러리   -->
 	  <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->

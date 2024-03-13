@@ -28,7 +28,7 @@ public class Join implements Command {
 	      if(row > 0) {
 	      request.setAttribute("email", email);
 	      // 포워드 방식은 약속 안넣어도 된다
-	        return "join_success" ;
+	        return "join_success";
 	       
 	      }else {
 	    	  

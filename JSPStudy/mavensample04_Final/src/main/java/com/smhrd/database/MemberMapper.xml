@@ -45,8 +45,14 @@
   UPDATE B_MEMBER 
   SET PW =#{pw}, TEL =#{tel} , ADDRESS =#{address} 
   WHERE EMAIL = #{email}
- 
   </update>
+  
+  <!-- parameterType은 필요없다 // resultType은 mvo로 해도가능 그러면 dao에서 세션사용하기에서 MemberVo를 써야함 -->
+  <select id="check" resultType ="String">
+  select email as result
+  from b_member
+  WHERE email = #{email}
+  </select>
   
   
   

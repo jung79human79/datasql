@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<script src ="assets/js/jquery.min.js"></script>
 
 	<%
 	// 1.세션영역안에 저장된 데이터 꺼내오기
@@ -170,10 +171,12 @@
 						placeholder="보내는 사람 이름" />
 				</div>
 				<div class="field half">
-					<label for="email">Email</label> <input type="text" id="email"
-						placeholder="보낼 사람 이메일" />
+					<label for="email">Email</label> 
+					<input type="text" id="email" placeholder="보낼 사람 이메일" />
+					<!-- 빈 영역을 생성 -->
+				<div id="chk_section"></div>
 				</div>
-
+			
 				<div class="field">
 					<label for="message">Message</label>
 					<textarea id="message" rows="6"></textarea>
@@ -243,6 +246,48 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	
+	<script type ="text/javascript">
+	// 1.id값이 email인 태그를 dom형식으로 가져와서 키보드 입력에 대한 이벤트 등록
+	// keyup --> 입력후 손을 뗄때마다~~
+		$("#email").on("keyup",function (){
+			// 2.id값이 email인 태그안에 들어있는 데이터 꺼내와서 객체 형태로 생성
+			let email = {
+			      "email":$(this).val()
+			}
+			// 3. 비동기통신 사용해서 email 확인 기능
+			$.ajax({
+				// 보내줄 URL
+				url : "EmailCheck.do",  
+				// 보내줄 데이터
+				data : email,
+				// 전송 방식
+				type : "get",
+				//성공시 실행할 함수 지정
+				success: (res) => {
+					console.log("전송 성공",res);
+					console.log("확인",null);
+					$("#chk_section").empty();
+					if(res!="null"){
+						
+						// 일치하는 정보입니다 --> 초록색
+						$("#chk_section").append("<li style ='color:green'>일치하는 정보입니다</li>")
+					}else{
+						//불일치입니다 --> 빨간색
+						$("#chk_section").append("<li style ='color:red'> 불일치하는 정보입니다</li>")
+					}
+				},
+				//실패시 실행할 함수 지정
+				 error :(e)=>{
+					console.log("전송 실패");
+	            }
+				
+			})
+			
+			
+	 })
+	</script>
+	
 
 </body>
 </html>

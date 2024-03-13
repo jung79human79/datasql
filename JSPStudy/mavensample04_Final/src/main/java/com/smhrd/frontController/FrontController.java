@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.smhrd.controller.Command;
+import com.smhrd.controller.EmailCheck;
 import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
@@ -41,7 +42,10 @@ public class FrontController extends HttpServlet {
 		map.put("Login.do", new Login());
 		map.put("Logout.do", new Logout());
 		map.put("SelectAll.do", new SelectAll());
-		map.put("Update.do", new Update());
+		map.put("Update.do", new Update());   
+		map.put("EmailCheck.do", new EmailCheck());	
+		
+		
 		// 새로운 기능을 만들때마다 map 자료 구조안에
 		// 경로 -실행해야하는 클래스 한세트로 묶어서 추가 해주기만 하면 됨
 
@@ -57,6 +61,7 @@ public class FrontController extends HttpServlet {
 		String path = uri.substring(cp.length() + 1);
 		//gomain.do
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
 
 		String finalpath = null;
 
@@ -76,8 +81,12 @@ public class FrontController extends HttpServlet {
 			finalpath = com.execute(request, response);
 			// [redirect:]/[gomain.do]
 		}
-
-		if (finalpath.contains("redirect:/")) {
+		
+		if(finalpath==null) {
+			// 비동기 통신일때는 이동해야하는 경로가 없으므로 조건을 그냥 하나만 잡아주기!!
+			
+		}
+		else if (finalpath.contains("redirect:/")) {
 
 			response.sendRedirect(finalpath.split("/")[1]);
 

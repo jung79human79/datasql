@@ -94,11 +94,26 @@ public void update(MemberVo vo) {
 	session.close();
 	
 }
+
+
+
+
+
+
+public String check(String email) {
+	
+	    // 1.세션 빌려오기
+		SqlSession session = factory.openSession(true);	
+		// 2.세션사용하기 --> select구문 데이터 한개만 조회!
+		 String result = session.selectOne("check",email);
+		// 3.세션 반납하기
+		session.close();
+		// 4.결과값 반환하기
+		return result;
+	
 }
-
 	
-	
-
+}
 
 
    
